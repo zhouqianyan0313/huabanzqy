@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html>
+<head>
+{% block title %}全部活动{% endblock %}
+</head>
+<body>
+{% block body %}
+    {% if photo %}
+        {% for p in photo %}
+                <div class="img">
+                    <div class="desc1">{{ p.item.date|date:'Y-m-d' }}</div>
+                    <div class="desc2">{{ p.item.name }}</div>
+                    <a class="img" target="_blank" href='/item/{{ p.item.date|date:'Y-m-d' }}/{{ p.item.name }}/'>
+                        <img src ={{ p.image.url }} alt="Ballade" width="160" height="160">
+                    </a>
+
+                </div>
+        {% endfor %}
+    {% else %}
+        <p style='color: #ff7c0d;font-family:Cursive;font-size: 50px;margin-top: 50px;' align="center"><strong>所有照片不存在！！</strong></p>
+    {% endif %}
+
+{% endblock %}
+</body>
+</html>

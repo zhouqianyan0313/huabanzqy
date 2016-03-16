@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html>
+<head>
+{% block title %}留言板{% endblock %}
+</head>
+<body>
+{% block body %}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p>概要：<input name="outline" type="text" value={{au.outline}}></p>
+        <p>详述：<textarea name="detail" value={{au.detail}}></textarea></p>
+        <p>联系方式：<input name="contact" type="text" value={{au.contact}}></p>
+        <p><input type="submit" value="提交" onclick="location.href='/success/'">
+            <input type="reset" value="重置"></p>
+    </form>
+        {% if msgs %}
+            <h2>最近留言</h2>
+            {% for m in msgs %}
+                <p class="message">日期：{{ m.date|date:'Y-m-d' }}
+                    概要：{{ m.outline }}
+                    详述：{{ m.detail }}
+                </p>
+            {% endfor %}
+        {% else %}
+            <p style="color: #ff7c0d;font-size: 50px;font-family: Cursive;text-align: center;margin-top: 50px;">暂时没有任何留言</p>
+        {% endif %}
+{% endblock %}
+</body>
+</html>

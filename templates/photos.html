@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+img.normal
+{
+height: 300px;
+width: 300px;
+}
+    body{
+        background-image: url("../media/photos/background.jpg");
+        background-position: top;
+        background-repeat: repeat;
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+    }
+</style>
+</head>
+<body>
+
+{% if photo %}
+
+ {% for p in photo %}
+<a href={{ p.image.url }} title="点击查看原图" ><img class="normal" src ='{{ p.image.url }}'/></a>
+{% endfor %}
+    {% else %}
+    <p>ooooo</p>
+{% endif %}
+</body>
+</html>

@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html>
+<head>
+{% block title %}关于我们{% endblock %}
+</head>
+<body>
+{% block body %}
+    <div id="about">
+        <h2>主要成员介绍</h2>
+        <ul class="line">
+            {% if user %}
+                {% for u in user %}
+                    <li class="two"><a class="user" href="/userdetail/{{ u.num }}/" title="点击查看详细信息" style='text-decoration:none;'>{{ u.name }}</a></li>
+                {% endfor %}
+            {% else %}
+                <p style="padding-left: 10px;">还没有成员！期待你的加入！</p>
+            {% endif %}
+        </ul>
+    </div>
+
+    <div id="about">
+        <h2>公司基本信息</h2>
+        {% if company %}
+            <table id="customers">
+            {% if company.name %}
+                <tr>
+                <th>公司全称</th>
+                <td>{{ company.name }}</td>
+                </tr>
+            {% endif %}
+            {% if company.ceo %}
+                <tr>
+                <th>CEO</th>
+                    <td>{{ company.ceo }}</td>
+                </tr>
+            {% endif %}
+            {% if company.fax %}
+                <tr>
+                <th>传真</th>
+                    <td>{{ company.fax }}</td>
+                </tr>
+            {% endif %}
+            {% if company.number %}
+                <tr>
+                <th>办公处电话</th>
+                    <td>{{ company.number }}</td>
+                </tr>
+            {% endif %}
+            {% if company.addr %}
+                <tr>
+                <th>地址</th>
+                    <td>{{ company.addr }}</td>
+                </tr>
+            {% endif %}
+            {% if company.zipcode %}
+                <tr>
+                <th>邮编</th>
+                    <td>{{ company.zipcode }}</td>
+                </tr>
+            {% endif %}
+            </table>
+            <a class="download" style="padding-left: 16px;font-size: 18px;" href="/download/{{ company.description }}/">点击下载本公司详细介绍</a>
+        {% else %}
+            <p style="text-align: center;font-family: Cursive;font-size: 25px;margin: 50px;color: #ff7c0d;">主页君太懒，还没有添加任何公司信息。</p>
+        {% endif %}
+        
+    </div>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html>
+<head>
+{% block title %}主页{% endblock %}
+</head>
+<body>
+{% block body %}
+    {% if photo %}
+        <h2>Hey, boys and girls,这有最新活动哟</h2>
+        <div class="homeimg">
+            <div class="homedesc1">{{ photo.item.date|date:'Y-m-d' }}</div>
+            <p class="homedesc2">{{ photo.item.name }}</p>
+            <a class="homeimg" target="_blank" href='/item/{{ photo.item.date|date:'Y-m-d' }}/{{ photo.item.name }}/'>
+                <img src ={{ photo.image.url }} alt="Ballade" width="500" height="500"></a>
+        </div>
+    {% else %}
+            <p style='color: #ff7c0d;font-size: 50px;font-family: Cursive;margin: 30px;margin-top: 50px;' align="center"><strong>最近没有办活动哟，去活动区看看有没有别的活动吧^_^</strong></p>
+    {% endif %}
+{% endblock %}
+</body>
+</html>

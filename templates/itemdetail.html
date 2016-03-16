@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html>
+<head>
+{% block title %}“{{ item.name }}”活动详情{% endblock %}
+</head>
+<body>
+{% block body %}
+    {% if photo %}
+        <p class="item">标题：{{ item.name }}
+            日期：{{ item.date|date:'Y-m-d' }}
+            描述：{{ item.description }}</p>
+        {% for p in photo %}
+            <div class="img">
+                    <div class="desc1">{{ p.title}}</div>
+                    <div class="desc2">
+                        {% if p.caption %}
+                            <p class='photo'>{{ p.caption }}</p></div>
+                        {% else %}
+                            <p class='photo'>无描述</p></div>
+                        {% endif %}
+                    <a class="img" target="_blank" href={{ p.image.url }}>
+                        <img src ={{ p.image.url }} alt="Ballade" width="160" height="160">
+                    </a>
+                </div>
+        {% endfor %}
+    {% else %}
+        <p style="text-align: center;font-family: Cursive;font-size: 50px;color: #ff7c0d;">所有照片都没上传^_^不好意思哟^_^</p>
+    {% endif %}
+{% endblock %}
+</body>
+</html>

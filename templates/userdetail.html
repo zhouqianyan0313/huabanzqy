@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html>
+<head>
+{% block title %}{{ user.name }}详细信息{% endblock %}
+</head>
+<body>
+{% block body %}
+    <div id="userdetail">
+        <h2>成员详细信息</h2>
+        <ul class="line">
+            {% if user %}
+                {% for u in user %}
+                    <li class="three">编号：{{ u.num }}</li>
+                    <li class="three">姓名：{{ u.name }}</li>
+                    <li class="three">职位：{{ u.position }}</li>
+                    <li class="three">邮箱：{{ u.email }}</li>
+                    <li> </li>
+                {% endfor %}
+            {% else %}
+                <p style='color: #ff7c0d;'><strong>该成员不存在！！</strong></p>
+            {% endif %}
+        </ul>
+    </div>
+{% endblock %}
+</body>
+</html>

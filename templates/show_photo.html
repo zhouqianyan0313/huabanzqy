@@ -1,0 +1,24 @@
+<html>
+<head>
+<style type="text/css">
+img.normal
+{
+height: 300px;
+    width: 300px;
+}
+</style>
+</head>
+<body>
+
+{% if photo %}
+
+ {% for p in photo %}
+<img class="normal" src ='{{ p.image.url }}'/>
+{% endfor %}
+    {% else %}
+    <p>ooooo</p>
+{% endif %}
+</body>
+</html>
+
+

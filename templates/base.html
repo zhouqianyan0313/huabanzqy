@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+<style type="text/css">
+    h1{
+        font-size:35px;
+        text-align:center;
+        color: #ff7c0d;
+        margin:0;
+        padding: 10px;
+        font-family: Cursive ;
+    }
+    h2 {
+        font-size: 30px;
+        color: #ff7c0d;
+        position:relative;
+        font-family: Cursive;
+        text-align: center;
+        padding-left: -50px;
+    }
+    ul{
+        list-style-type:none;
+        margin:-3px;
+        outline-width: 5px;
+        padding:0;
+        overflow:hidden;
+        width:auto;
+    }
+    ul.line{
+        margin:5px;
+        color: #ff7c0d;
+        text-align: center;
+        font-family: Cursive;
+        font-size: 25px;
+    }
+    li.daohang{
+        float:left;
+        outline-style: dotted;
+        outline-color: #0c2503;
+        outline-width: 1px;
+    }
+    li.two{
+        text-align: center;
+        position: relative;
+    }
+    li.three{
+        text-align: left;
+        padding-left: 100px;
+    }
+    a:link,a:visited{
+        display:block;
+        font-weight:bold;
+        color: #ff7c0d;
+        text-align:center;
+        padding-top:1px;
+        width:268px;
+        margin-left: 30px;
+        text-decoration:none;
+        text-transform:uppercase;
+        font-size: 20px;
+        font-family: Cursive;
+    }
+    a:hover,a:active{
+        color: #0c2503;
+        font-size: 21px;
+    }
+    a.user:link,a.user:visited{
+        display:block;
+        font-weight:bold;
+        text-align:center;
+        padding-top:1px;
+        width:350px;
+        margin-left: 30px;
+        text-decoration:none;
+        text-transform:uppercase;
+        font-size: 20px;
+        font-family: Cursive;
+        text-align: center;
+    }
+    a.user:hover,a.user:active{
+        outline-style: dotted;
+        outline-color: #ff7c0d;
+        outline-width: 2px;
+    }
+    a.img:link,a.img:visited{
+        display:block;
+        font-weight:bold;
+        text-align:center;
+        padding-top:1px;
+        margin: 10px;
+        text-decoration:none;
+        text-transform:uppercase;
+        font-size: 20px;
+        font-family: Cursive;
+        text-align: center;
+    }
+    a.img:hover,a.img:active{
+        outline-style: dotted;
+        outline-color: #0c2503;
+        outline-width: 2px;
+    }
+    a.homeimg:link,a.homeimg:visited{
+        display:block;
+        font-weight:bold;
+        text-align:center;
+        padding:2px;
+        font-size: 20px;
+        font-family: Cursive;
+        text-align: center;
+    }
+    a.homeimg:hover,a.homeimg:active{
+        outline-style: dotted;
+        outline-width: 2px;
+        outline-color: #0c2503;
+    }
+    a.download{
+        font-family: Cursive;
+        font-size: 15px;
+        margin-top: 10px;
+        margin-left: 80px;
+        color: #ff7c0d;
+    }
+    #about{
+        margin-left: 120px;
+        width: 450px;
+        height: 450px;
+        font-family: Cursive;
+        font-size: 8px;
+        color: #ff7c0d;
+        float:left;
+    }
+    #userdetail{
+        margin: 20px;
+        width: 600px;
+        height: 300px;
+        font-family: Cursive;
+        font-size: 8px;
+        position:absolute;
+        left:23%;
+        top:25%;
+    }
+    #item{
+        margin: 20px;
+        width:300px;
+        height: auto;
+        font-family: Cursive;
+        font-size: 8Px;
+        outline-color: #ff7c0d;
+        outline-style: solid;
+        position :relative;
+    }
+    #customers{
+        font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+        width:100%;
+        border-collapse:collapse;
+        padding-left: 20px;
+        font-family: Cursive;
+        font-size:20px;
+    }
+    #customers td, #customers th{
+        border:1px solid #ff7c0d;
+        padding:3px 7px 2px 7px;
+        text-align:center;
+    }
+    #customers th{
+        padding-top:5px;
+        padding-bottom:4px;
+        background-color: #ff7c0d;
+        color: white;
+    }
+    #customers td{
+        color: #0c2503;
+    }
+    form {
+        text-align: left;
+        color: #ff7c0d;
+        margin: 30px;
+        font-size: 15px;
+        font-family: Cursive;
+        font-weight: bold;
+        padding-left: 180px;
+        float: left;
+    }
+    div.img{
+        margin:7.64px;
+        margin-top: 30px;
+        border:1px solid #c6c6cb;
+        height:auto;
+        width:auto;
+        text-align:center;
+        float: left;
+    }
+    div.img img{
+        display:inline;
+        margin:3px;
+        border:1px solid #bebebe;
+    }
+    div.img a:hover img{
+        border:1px solid #333333;
+    }
+    div.homeimg{
+        height:600px;
+        width:600px;
+        text-align:center;
+        margin-left: 370px;
+        margin-top: 30px;
+        position: relative;
+    }
+    div.homedesc1 {
+        text-align:center;
+        font-weight:normal;
+        font-size:12px;
+        margin-top: 10px;
+        margin-left: 120px;
+        margin-bottom: 10px;
+        width:300px;
+        position: relative;
+        color: #0c2503;
+    }
+    p.homedesc2 {
+        position: relative;
+        text-align:center;
+        font-weight:normal;
+        font-size:15px;
+        margin-top: 10px;
+        margin-left: 5px;
+        margin-bottom: 10px;
+        width:500px;
+        overflow: hidden;
+        color: #0c2503;
+    }
+    div.desc1 {
+        text-align:center;
+        font-weight:normal;
+        font-size:12px;
+        margin-top: 10px;
+        margin-left: 3px;
+        margin-bottom: 10px;
+        width:278px;
+        position: relative;
+        color: #0c2503;
+    }
+    div.desc2 {
+        position: relative;
+        text-align:center;
+        font-weight:normal;
+        font-size:15px;
+        margin-top: 10px;
+        margin-left: 3px;
+        margin-bottom: 10px;
+        width:278px;
+        overflow: scroll;
+        overflow-y: hidden;
+        color: #0c2503;
+    }
+    p.item {
+        padding: 20px;
+        padding-left: 50px;;
+        margin: 5px;
+        margin-left: 150px;
+        margin-right: 150px;
+        margin-top: 20px;
+        outline-style: solid;
+        outline-width: thin;
+        color: #ff7c0d;
+        white-space: pre-line;
+    }
+    p.photo{
+        padding: 2px;
+        margin: 5px;
+        color: #0c2503;
+        text-align: center;
+        white-space: pre-line;
+    }
+    p.about{
+        padding: 20px;
+        margin: 25px;
+        margin-top: 30px;
+        outline-style: solid;
+        outline-width: 2px;;
+        color: #4b870e;
+        white-space: pre-line;
+        font-size: 12px;
+        font-family: Cursive;
+        white-space: pre-line;
+    }
+    p.message{
+        text-align: left;
+        outline-style: solid;
+        outline-color: #0c2503;
+        outline-width: 1px;
+        font-family: Cursive;
+        font-size: 15px;
+        color: #0c2503;
+        margin-left: 100px;
+        padding:10px;
+        float: left;
+        white-space: pre-line;
+    }
+    body{
+        background-image: url('/media/photos/background.jpg');
+        background-position: top;
+        background-repeat: repeat;
+    }
+</style>
+</head>
+<body>
+<ul><h1>周方恬style~</h1></ul>
+<ul class = line></ul>
+<ul>
+    <li class="daohang"><a href="/">主页</a></li>
+    <li class="daohang"><a href="/activities/">活动</a></li>
+    <li class="daohang"><a href="/message/">留言板</a></li>
+    <li class="daohang"><a href="/about/">关于我们</a></li>
+</ul>
+{% block body %}{% endblock %}
+</body>
+</html>
